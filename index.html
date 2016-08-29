@@ -1,0 +1,57 @@
+<meta charset="utf8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="libfec.js"></script>
+<script src="quiet.js"></script>
+<script src="index.min.js"></script>
+<script async src="quiet-emscripten.js"></script>
+<style>
+#selector {
+
+}
+#selector button {
+  width: 100%;
+  height: 25%;
+  font-size: 2rem;
+}
+
+body, input, select, button {
+  font: 16px/22px Helvetica, sans-serif;
+}
+
+.with-ssids { display: none; }
+.has-ssids .with-ssids { display: block; }
+.has-ssids .without-ssids { display: none; }
+
+#phone, #sensor { display: none; }
+.as-phone #phone { display: block; }
+.as-sensor #sensor { display: block; }
+.status {
+  font-weight: bold;
+  padding: 1em 0;
+}
+</style>
+
+<body>
+  <div id="selector">
+    <p><button id="asSensor">Act as Sensor</button>
+    <p><button id="asPhone">Act as Phone</button>
+  </div>
+  <div id="phone">
+    <h1>Phone</h1>
+    <div class="status" id="phoneStatus"></div>
+    <div class="without-ssids">
+      <button id="requestSsids">Request SSIDs</button>
+    </div>
+    <div class="with-ssids">
+      <label>Available Networks:
+        <select id="ssids" style="min-width: 10em;">
+        </select>
+      </label>
+    </div>
+  </div>
+  <div id="sensor">
+    <h1>Sensor</h1>
+    <div class="status" id="sensorStatus"></div>
+  </div>
+</body>
